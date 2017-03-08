@@ -4,7 +4,7 @@
  */
 
 //place credentials here:
-define('DB_NAME','[Your Database Name]');
-define('DB_USER','[Your User Name]');
-define('DB_PASSWORD','[Your Password]');
-define('DB_HOST','[Your Host name]'); 
+define('DB_NAME','surveysez_gm');
+define('DB_USER','root');
+define('DB_PASSWORD','calen2la08');
+define('DB_HOST','localhost'); 
