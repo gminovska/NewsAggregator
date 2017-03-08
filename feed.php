@@ -1,6 +1,9 @@
 <?php
 session_start();
-$_SESSION['feeds'] = array();
+if (!isset($_SESSION['feeds']))
+{
+    $_SESSION['feeds'] = array();
+}
 date_default_timezone_set('America/Los_Angeles');
 ?>
 
@@ -25,12 +28,10 @@ date_default_timezone_set('America/Los_Angeles');
   if (array_key_exists($request,$_SESSION['feeds']) == FALSE 
       || strtotime($time) - strtotime($_SESSION['feeds'][$request][1]) >= 600 )
   {
-      $response = file_get_contents($request); 
-      $xml = simplexml_load_string($response);
-      $_SESSION['feeds'][$request] = array($xml,$time);
+      $response = file_get_contents($request);
+      $_SESSION['feeds'][$request] = array($response,$time);
   }
-  
-  $page = $_SESSION['feeds'][$request][0];
+  $page = simplexml_load_string($_SESSION['feeds'][$request][0]);
   
     
   echo '<h1>' . $page->channel->title . '</h1>
