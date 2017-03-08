@@ -32,10 +32,8 @@ if (array_key_exists($request,$_SESSION['feeds']) == FALSE
     $_SESSION['feeds'][$request] = array($response,$time);
 
 }
-//without the else statement, the stored data never gets pulled from the session
+
 else {
-    //grab the response from the session
-    $response = $_SESSION['feeds'][$request];
     echo("built from session stored data");
 }
 $page = simplexml_load_string($_SESSION['feeds'][$request][0]);
