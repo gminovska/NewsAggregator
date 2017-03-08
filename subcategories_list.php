@@ -1,4 +1,19 @@
-<h1>Welcome to subcategories</h1>
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Feeds List</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+<h1>News Aggregator</h1>
+<h2>- subcategories -</h2>
+</header>
+    
 <?php
 require 'config/common.php';
 require 'subcategory.php';
@@ -23,9 +38,9 @@ if(mysqli_num_rows($result) > 0) {
         
         echo '<div>
                 <h2>' . $subcategory->subcategoryName . '</h2>
-                <img src="' . $subcategory->subcategoryImage . '" alt="">
-                <p>' . $subcategory->subcategoryDescription . '</p>
-                <a href="' . $subcategory->subcategoryRSS . '">Read news</a>
+                <a href=' . '../feed.php/?rss=' . $subcategory->subcategoryRSS . '><img src="' . $subcategory->subcategoryImage . '" alt=""></a>
+                <p>' . $subcategory->subcategoryDescription . '<br>
+                <strong><a href=' . '../feed.php/?rss=' . $subcategory->subcategoryRSS . '>Go to ' . $subcategory->subcategoryName . ' news feeds</a></strong></p>
               </div>';
     }//end of foreach loop
 
@@ -34,3 +49,8 @@ else
 {
     //what should happen if we don't have data in the db?
 }
+    
+        ?>
+    
+</body>
+</html>

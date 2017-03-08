@@ -1,5 +1,9 @@
+
 ## JetBrains IDE files
 .idea/*
 
 ## VS Code files
 .vscode/*
+
+config/credentials.php
+

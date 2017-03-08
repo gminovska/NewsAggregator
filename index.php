@@ -1,3 +1,19 @@
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+<h1>News Aggregator</h1>
+</header>
+
+
 <?php
 //common classes and functions (IDB and getCategoryData)
 require "config/common.php";
@@ -22,9 +38,9 @@ if(mysqli_num_rows($result) > 0) {
         
         echo '<div>
                 <h2>' . $category->categoryName . '</h2>
-                <img src="' . $category->categoryImage . '" alt="">
-                <p>' . $category->categoryDescription . '</p>
-                <a href="' . $category->subcategoriesURL . '">Subcategories</a>
+                <a href="' . $category->subcategoriesURL . '"><img src="' . $category->categoryImage . '" alt=""></a>
+                <p>' . $category->categoryDescription . '<br>
+                <strong><a href="' . $category->subcategoriesURL . '">View ' . $category->categoryName . ' feeds</a></strong></p>
               </div>';
     }//end of foreach loop
 
@@ -33,3 +49,8 @@ else
 {
     //what should happen if we don't have data in the db?
 }
+
+    ?>
+    
+</body>
+</html>

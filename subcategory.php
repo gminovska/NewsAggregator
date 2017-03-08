@@ -30,9 +30,24 @@ private function setImages($name) {
         case "Fitness":
         $this->subcategoryImage = "../images/fitness.jpeg";
         break;
-        //@todo implement the rest of the cases
-        //Free images download (choose 300 x 200px) at: https://www.pexels.com/
-        
+        case "Global Warming":
+        $this->subcategoryImage = "../images/global_warming.jpeg";
+        break;
+        case "Biodiversity":
+        $this->subcategoryImage = "../images/biodiversity.jpeg";
+        break;
+        case "Renewable Energy":
+        $this->subcategoryImage = "../images/renewable.jpg";
+        break;
+        case "Video Games":
+        $this->subcategoryImage = "../images/video_games.jpeg";
+        break;
+        case "Software":
+        $this->subcategoryImage = "../images/software.jpeg";
+        break;
+        case "Hacking":
+        $this->subcategoryImage = "../images/hacking.jpeg";
+        break;
     }//end of switch
 }//end of setImages function 
 
