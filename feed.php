@@ -40,8 +40,16 @@ else {
 }
 $page = simplexml_load_string($_SESSION['feeds'][$request][0]);
 
-echo '<h1>' . $page->channel->title . '</h1>
-        </header>';
+echo '<h1>' . $page->channel->title . '</h1>';
+
+?>
+
+        <form action="<?php echo './?rss=' . $request?>" method="post">
+        <button  name="clearFeed" value="<?php echo $request?>">Clear feed cache</button>
+        <button name="clearAll" value = "All cleared">Clear all cache</button>
+        </form>
+        </header>
+<?php
 echo '<h2>Feeds refreshed every 10 minutes. Last refreshed at: ' .  $_SESSION['feeds'][$request][1] . '</h2>';
 
 
@@ -60,5 +68,24 @@ foreach($page->channel->item as $story)
     }
 }
 
+
+
+//functions to clear cache
+
+function ClearFeed($request) {
+    unset($_SESSION['feeds'][$request]);
+
+}
+
+function ClearAll() {
+    unset($_SESSION['feeds']);
+}
+
+//check which button was clicked and call the appropriate function
+    if(isset($_POST['clearFeed'])) {
+    ClearFeed($request);
+    }else if(isset($_POST['clearAll'])) {
+    ClearAll();
+    }
+
 var_dump($_SESSION['feeds']);
-?>
