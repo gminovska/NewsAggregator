@@ -1,4 +1,18 @@
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Feeds List</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+   
 <?php
+
 session_start();
 if (!isset($_SESSION['feeds']))
 {
@@ -39,11 +53,14 @@ date_default_timezone_set('America/Los_Angeles');
   echo '<h2>Feeds refreshed every 10 minutes. Last refreshed at: ' .  $_SESSION['feeds'][$request][1] . '</h2>';
     
 
+
   //the images are not showing because they are under a namespace "media".
   //get an array of namespace prefixes with their associated URIs.
   //read more@: https://www.sitepoint.com/parsing-xml-with-simplexml/
-  $ns = $page->getNamespaces(true);
-  foreach($page->channel->item as $story)
+
+  $ns = $xml->getNamespaces(true);
+  foreach($xml->channel->item as $story)
+
   {
     $thumbnail = $story->children($ns['media']);
     //display only stories that have thumbnail images
