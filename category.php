@@ -12,7 +12,7 @@ public function __construct($id, $name, $description) {
 $this->categoryID = (int)$id;
 $this->categoryName = $name;
 $this->categoryDescription = $description;
-$this->subcategoriesURL = "subcategories_list.php/?id=$this->categoryID";
+$this->subcategoriesURL = "subcategories_list.php/?id=$this->categoryID&name=$this->categoryName";
 $this->setImages($this->categoryName);
 
 }//end of Category constructor
