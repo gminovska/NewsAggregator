@@ -11,16 +11,28 @@
 <body>
 <header>
 <h1>News Aggregator</h1>
-<h2>- subcategories -</h2>
-</header>
     
 <?php
 require 'config/common.php';
 require 'subcategory.php';
+//get the category name from the URL
+$catName = $_GET['name'];
+    /*echo '<pre>';
+    var_dump($_GET);
+    echo '</pre>';*/
+echo'<h2>You are viewing the ' . $catName . ' subcategories</h2>';
+;?>
+<h3><a href="../">Home</a></h3>
+</header>
+    
+<?php
+
 
 //grab the categoryID from the URL
 $catID = (int) $_GET['id'];
 $result = getSubcategoryData($catID);
+    
+
 
 //check if there are rows 
 if(mysqli_num_rows($result) > 0) {
